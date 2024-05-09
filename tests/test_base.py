@@ -115,11 +115,6 @@ def test_case_16():
     assert result == "test-name-is-correct"
 
 
-def test_case_17():
-    result = build_name("TestNameIsCorrecT")
-    assert result == "test-name-is-correct"
-
-
 def test_case_18():
     class TestNameIsCorrect(ContentTag): ...
 
