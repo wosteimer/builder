@@ -30,7 +30,7 @@ class ContentTag(Tag):
 
     @override
     def build(self) -> str:
-        name = self.__class__.__name__.lower()
+        name = build_name(self.__class__.__name__)
         props = ""
         if self.__classes:
             props += build_classes(self.__classes)
@@ -56,7 +56,7 @@ class EmptyTag(Tag):
 
     @override
     def build(self) -> str:
-        name = self.__class__.__name__.lower()
+        name = build_name(self.__class__.__name__)
         props = ""
         if self.__classes:
             props += build_classes(self.__classes)
@@ -64,6 +64,20 @@ class EmptyTag(Tag):
             props += build_style(self.__style)
         props += build_props(self.__props)
         return f"<{name}{props}/>"
+
+
+def build_name(name: str) -> str:
+    result = ""
+    for index, letter in enumerate(name):
+        if letter.isupper():
+            if index == 0 or index == len(name) - 1:
+                result += letter.lower()
+            else:
+                result += f"-{letter.lower()}"
+        else:
+            result += letter
+
+    return result
 
 
 def build_props(props: dict[str, Prop]) -> str:

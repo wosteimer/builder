@@ -3,6 +3,7 @@ from builder.base import (
     EmptyTag,
     build_child,
     build_classes,
+    build_name,
     build_props,
     build_style,
 )
@@ -107,3 +108,27 @@ def test_case_15():
 
     result = Test(children=[Test2()]).build()
     assert result == "<test><test2></test2></test>"
+
+
+def test_case_16():
+    result = build_name("TestNameIsCorrect")
+    assert result == "test-name-is-correct"
+
+
+def test_case_17():
+    result = build_name("TestNameIsCorrecT")
+    assert result == "test-name-is-correct"
+
+
+def test_case_18():
+    class TestNameIsCorrect(ContentTag): ...
+
+    result = TestNameIsCorrect().build()
+    assert result == "<test-name-is-correct></test-name-is-correct>"
+
+
+def test_case_19():
+    class TestNameIsCorrect(EmptyTag): ...
+
+    result = TestNameIsCorrect().build()
+    assert result == "<test-name-is-correct/>"
