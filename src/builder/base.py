@@ -70,7 +70,7 @@ def build_name(name: str) -> str:
     result = ""
     for index, letter in enumerate(name):
         if letter.isupper():
-            if index == 0 or index == len(name) - 1:
+            if index == 0:
                 result += letter.lower()
             else:
                 result += f"-{letter.lower()}"
