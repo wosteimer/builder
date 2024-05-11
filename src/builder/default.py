@@ -1,5 +1,5 @@
-from typing import Literal, Optional, Sequence, TypedDict
-from typing_extensions import Unpack
+from typing import Literal, Optional, Sequence
+from typing_extensions import Unpack, TypedDict
 from builder.base import (
     ContentTag,
     EmptyTag,
