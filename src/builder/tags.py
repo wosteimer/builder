@@ -870,6 +870,7 @@ class MetaProps(GlobalProps, EventProps, closed=True, total=False):
         "generator",
         "keywords",
         "viewport",
+        "theme-color",
     ]
     __extra_items__: Prop
 
