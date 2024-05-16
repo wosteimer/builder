@@ -21,11 +21,13 @@ class ContentTag(Tag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Prop,
     ):
         self.__classes = classes
         self.__style = style
         self.__props = props
+        self.__extra_props = extra_props
         self.__children = children
 
     @override
@@ -36,10 +38,12 @@ class ContentTag(Tag):
             props += build_classes(self.__classes)
         if self.__style:
             props += build_style(self.__style)
+        if self.__extra_props:
+            props += build_extra_props(self.__extra_props)
+        props += build_props(self.__props)
         children = ""
         if self.__children:
             children = "".join([build_child(child) for child in self.__children])
-        props += build_props(self.__props)
         return f"<{name}{props}>{children}</{name}>"
 
 
@@ -48,9 +52,11 @@ class EmptyTag(Tag):
         self,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Prop,
     ):
         self.__classes = classes
+        self.__extra_props = extra_props
         self.__style = style
         self.__props = props
 
@@ -62,6 +68,8 @@ class EmptyTag(Tag):
             props += build_classes(self.__classes)
         if self.__style:
             props += build_style(self.__style)
+        if self.__extra_props:
+            props += build_extra_props(self.__extra_props)
         props += build_props(self.__props)
         return f"<{name}{props}/>"
 
@@ -87,6 +95,16 @@ def build_props(props: dict[str, Prop]) -> str:
             output += (" " + key.replace("_", "-")) if value else ""
         else:
             output += " " + key.replace("_", "-") + "=" + f'"{value}"'
+    return output
+
+
+def build_extra_props(props: dict[str, Prop]) -> str:
+    output = ""
+    for key, value in props.items():
+        if isinstance(value, bool):
+            output += " " + key if value else ""
+        else:
+            output += " " + key + "=" + f'"{value}"'
     return output
 
 

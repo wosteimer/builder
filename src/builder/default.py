@@ -122,9 +122,10 @@ class DefaultContentTag(ContentTag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[DefaultProps],
     ):
-        super().__init__(children, classes, style, **props)
+        super().__init__(children, classes, style, extra_props, **props)
 
 
 class DefaultEmptyTag(EmptyTag):
@@ -132,6 +133,7 @@ class DefaultEmptyTag(EmptyTag):
         self,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[DefaultProps],
     ):
-        super().__init__(classes, style, **props)
+        super().__init__(classes, style, extra_props, **props)
