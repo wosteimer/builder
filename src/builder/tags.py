@@ -907,9 +907,10 @@ class Meta(EmptyTag):
         self,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[MetaProps],
     ):
-        super().__init__(classes, style, **props)
+        super().__init__(classes, style, extra_props, **props)
 
 
 class MeterProps(GlobalProps, EventProps, closed=True, total=False):
@@ -929,9 +930,10 @@ class Meter(ContentTag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[MeterProps],
     ):
-        super().__init__(children, classes, style, **props)
+        super().__init__(children, classes, style, extra_props, **props)
 
 
 class Nav(DefaultContentTag): ...
@@ -943,9 +945,10 @@ class Noscript(ContentTag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[GlobalProps],
     ):
-        super().__init__(children, classes, style, **props)
+        super().__init__(children, classes, style, extra_props, **props)
 
 
 class ObjectProps(GlobalProps, EventProps, closed=True, total=False):
@@ -966,9 +969,10 @@ class Object(ContentTag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[ObjectProps],
     ):
-        super().__init__(children, classes, style, **props)
+        super().__init__(children, classes, style, extra_props, **props)
 
 
 class OlProps(GlobalProps, EventProps, closed=True, total=False):
@@ -990,9 +994,10 @@ class Ol(ContentTag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[OlProps],
     ):
-        super().__init__(children, classes, style, **props)
+        super().__init__(children, classes, style, extra_props, **props)
 
 
 class OptgroupProps(GlobalProps, EventProps, closed=True, total=False):
@@ -1007,9 +1012,10 @@ class Optgroup(ContentTag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[OptgroupProps],
     ):
-        super().__init__(children, classes, style, **props)
+        super().__init__(children, classes, style, extra_props, **props)
 
 
 class OptionProps(GlobalProps, EventProps, closed=True, total=False):
@@ -1026,9 +1032,10 @@ class Option(ContentTag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[OptionProps],
     ):
-        super().__init__(children, classes, style, **props)
+        super().__init__(children, classes, style, extra_props, **props)
 
 
 class OutputProps(GlobalProps, EventProps, closed=True, total=False):
@@ -1044,11 +1051,12 @@ class Output(ContentTag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[OutputProps],
     ):
         if "for_" in props:
             props["for"] = props.pop("for_")
-        super().__init__(children, classes, style, **props)
+        super().__init__(children, classes, style, extra_props, **props)
 
 
 class P(DefaultContentTag): ...
@@ -1065,9 +1073,10 @@ class Param(EmptyTag):
         self,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[ParamProps],
     ):
-        super().__init__(classes, style, **props)
+        super().__init__(classes, style, extra_props, **props)
 
 
 class Picture(DefaultContentTag): ...
@@ -1088,9 +1097,10 @@ class Progress(ContentTag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[ProgressProps],
     ):
-        super().__init__(children, classes, style, **props)
+        super().__init__(children, classes, style, extra_props, **props)
 
 
 class QProps(GlobalProps, EventProps, closed=True, total=False):
@@ -1104,9 +1114,10 @@ class Q(ContentTag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[QProps],
     ):
-        super().__init__(children, classes, style, **props)
+        super().__init__(children, classes, style, extra_props, **props)
 
 
 class Rp(DefaultContentTag): ...
@@ -1151,9 +1162,12 @@ class Script(ContentTag):
         script: Optional[str] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[ScriptProps],
     ):
-        super().__init__([script] if script else None, classes, style, **props)
+        super().__init__(
+            [script] if script else None, classes, style, extra_props, **props
+        )
 
 
 class Search(DefaultContentTag): ...
@@ -1179,9 +1193,10 @@ class Select(ContentTag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[SelectProps],
     ):
-        super().__init__(children, classes, style, **props)
+        super().__init__(children, classes, style, extra_props, **props)
 
 
 class Small(DefaultContentTag): ...
@@ -1201,9 +1216,10 @@ class Source(EmptyTag):
         self,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[SourceProps],
     ):
-        super().__init__(classes, style, **props)
+        super().__init__(classes, style, extra_props, **props)
 
 
 class Span(DefaultContentTag): ...
@@ -1224,9 +1240,10 @@ class Style(ContentTag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[StyleProps],
     ):
-        super().__init__(children, classes, style, **props)
+        super().__init__(children, classes, style, extra_props, **props)
 
 
 class Sub(DefaultContentTag): ...
@@ -1260,9 +1277,10 @@ class Td(ContentTag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[TdProps],
     ):
-        super().__init__(children, classes, style, **props)
+        super().__init__(children, classes, style, extra_props, **props)
 
 
 class Template(DefaultContentTag): ...
@@ -1290,9 +1308,10 @@ class Textarea(ContentTag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[TextareaProps],
     ):
-        super().__init__(children, classes, style, **props)
+        super().__init__(children, classes, style, extra_props, **props)
 
 
 class Tfoot(DefaultContentTag): ...
@@ -1318,9 +1337,10 @@ class Th(ContentTag):
         children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
         style: Optional[dict[str, str]] = None,
+        extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[ThProps],
     ):
-        super().__init__(children, classes, style, **props)
+        super().__init__(children, classes, style, extra_props, **props)
 
 
 class Thead(DefaultContentTag): ...
