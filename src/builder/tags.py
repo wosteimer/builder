@@ -76,8 +76,8 @@ class AProps(GlobalProps, EventProps, closed=True, total=False):
 class A(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[AProps],
@@ -174,8 +174,8 @@ class AudioProps(GlobalProps, EventProps, closed=True, total=False):
 class Audio(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[AudioProps],
@@ -221,8 +221,8 @@ class BlockquoteProps(GlobalProps, EventProps, closed=True, total=False):
 class Blockquote(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[BlockquoteProps],
@@ -237,8 +237,8 @@ class BodyProps(GlobalProps, WindowEventProps, EventProps, closed=True, total=Fa
 class Body(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[BodyProps],
@@ -288,8 +288,8 @@ class ButtonProps(GlobalProps, EventProps, closed=True, total=False):
 class Button(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[ButtonProps],
@@ -306,8 +306,8 @@ class CanvasProps(GlobalProps, EventProps, closed=True, total=False):
 class Canvas(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[CanvasProps],
@@ -343,8 +343,8 @@ class Col(EmptyTag):
 class Colgroup(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[ColProps],
@@ -360,8 +360,8 @@ class DataProps(GlobalProps, EventProps, closed=True, total=False):
 class Data(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[DataProps],
@@ -378,8 +378,8 @@ class Dd(DefaultContentTag): ...
 class Del(DefaultContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         datetime: Optional[Datetime] = None,
         extra_props: Optional[dict[str, Prop]] = None,
@@ -401,8 +401,8 @@ class DetailsProps(GlobalProps, WindowEventProps, EventProps, closed=True, total
 class Details(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[DetailsProps],
@@ -421,8 +421,8 @@ class DialogProps(GlobalProps, EventProps, closed=True, total=False):
 class Dialog(DefaultContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[DialogProps],
@@ -473,8 +473,8 @@ class FieldsetProps(
 class Fieldset(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[FieldsetProps],
@@ -527,8 +527,8 @@ class FormProps(GlobalProps, EventProps, closed=True, total=False):
 class Form(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[FormProps],
@@ -539,8 +539,8 @@ class Form(ContentTag):
 class Head(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[GlobalProps],
@@ -565,8 +565,8 @@ class HtmlProps(GlobalProps, closed=True, total=False):
 class Html(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[HtmlProps],
@@ -610,8 +610,8 @@ class IframeProps(GlobalProps, EventProps, closed=True, total=False):
 class Iframe(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[IframeProps],
@@ -749,8 +749,8 @@ class InsProps(GlobalProps, EventProps, closed=True, total=False):
 class Ins(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         datetime: Optional[Datetime] = None,
         extra_props: Optional[dict[str, Prop]] = None,
@@ -776,8 +776,8 @@ class LabelProps(GlobalProps, EventProps, closed=True, total=False):
 class Label(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[LabelProps],
@@ -798,8 +798,8 @@ class LiProps(GlobalProps, EventProps, closed=True, total=False):
 class Li(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[LiProps],
@@ -864,8 +864,8 @@ class MapProps(GlobalProps, EventProps, closed=True, total=False):
 class Map(DefaultContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[MapProps],
@@ -925,8 +925,8 @@ class MeterProps(GlobalProps, EventProps, closed=True, total=False):
 class Meter(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[MeterProps],
@@ -940,8 +940,8 @@ class Nav(DefaultContentTag): ...
 class Noscript(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[GlobalProps],
@@ -964,8 +964,8 @@ class ObjectProps(GlobalProps, EventProps, closed=True, total=False):
 class Object(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[ObjectProps],
@@ -989,8 +989,8 @@ class OlProps(GlobalProps, EventProps, closed=True, total=False):
 class Ol(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[OlProps],
@@ -1007,8 +1007,8 @@ class OptgroupProps(GlobalProps, EventProps, closed=True, total=False):
 class Optgroup(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[OptgroupProps],
@@ -1027,8 +1027,8 @@ class OptionProps(GlobalProps, EventProps, closed=True, total=False):
 class Option(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[OptionProps],
@@ -1046,8 +1046,8 @@ class OutputProps(GlobalProps, EventProps, closed=True, total=False):
 class Output(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[OutputProps],
@@ -1092,8 +1092,8 @@ class ProgressProps(GlobalProps, EventProps, closed=True, total=False):
 class Progress(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[ProgressProps],
@@ -1109,8 +1109,8 @@ class QProps(GlobalProps, EventProps, closed=True, total=False):
 class Q(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[QProps],
@@ -1157,8 +1157,8 @@ class ScriptProps(GlobalProps, EventProps, closed=True, total=False):
 class Script(ContentTag):
     def __init__(
         self,
-        script: Optional[str] = None,
         classes: Optional[Sequence[str]] = None,
+        script: Optional[str] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[ScriptProps],
@@ -1192,8 +1192,8 @@ class SelectProps(GlobalProps, EventProps, closed=True, total=False):
 class Select(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[SelectProps],
@@ -1239,8 +1239,8 @@ class StyleProps(GlobalProps, EventProps, closed=True, total=False):
 class Style(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[StyleProps],
@@ -1276,8 +1276,8 @@ class TdProps(GlobalProps, EventProps, closed=True, total=False):
 class Td(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[TdProps],
@@ -1307,8 +1307,8 @@ class TextareaProps(GlobalProps, EventProps, closed=True, total=False):
 class Textarea(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[TextareaProps],
@@ -1336,8 +1336,8 @@ class ThProps(GlobalProps, EventProps, closed=True, total=False):
 class Th(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[ThProps],
@@ -1351,8 +1351,8 @@ class Thead(DefaultContentTag): ...
 class Time(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         datetime: Optional[Datetime] = None,
         extra_props: Optional[dict[str, Prop]] = None,
@@ -1369,8 +1369,8 @@ class Time(ContentTag):
 class Title(ContentTag):
     def __init__(
         self,
-        content: str,
         classes: Optional[Sequence[str]] = None,
+        content: str = "",
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[GlobalProps],
@@ -1436,8 +1436,8 @@ class VideoProps(GlobalProps, EventProps, closed=True, total=False):
 class Video(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[VideoProps],
