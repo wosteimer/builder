@@ -1,7 +1,6 @@
 from builder.base import (
     ContentTag,
     EmptyTag,
-    build_child,
     build_classes,
     build_name,
     build_props,
@@ -12,7 +11,7 @@ from builder.base import (
 def test_case_1():
     """It is expected that it will be possible to build the props"""
     result = build_props(
-        {"john": "wick", "is_true": True, "is_false": False, "number": 2469}
+        {"john": "wick", "is-true": True, "is_false": False, "number": 2469}
     )
     assert result == ' john="wick" is-true number="2469"'
 
@@ -27,30 +26,6 @@ def test_case_3():
     """It is expected that it will be possible to build the styles"""
     result = build_style({"margin": "auto", "padding": "16px"})
     assert result == ' style="margin:auto;padding:16px;"'
-
-
-def test_case_4():
-    """It is expected that if the child is a text, the result will be itself"""
-    result = build_child("teste")
-    assert result == "teste"
-
-
-def test_case_5():
-    """It is expected that if the child is a tag, the result will be an HTML tag"""
-
-    class Test(ContentTag): ...
-
-    result = build_child(Test())
-    assert result == "<test></test>"
-
-
-def test_case_6():
-    """It is expected that if the child is an empty tag, the result will be an empty HTML tag"""
-
-    class Test(EmptyTag): ...
-
-    result = build_child(Test())
-    assert result == "<test/>"
 
 
 def test_case_7():
@@ -95,16 +70,26 @@ def test_case_9():
     class TestEmpty(EmptyTag): ...
 
     result_content = TestContent(
-        john="wick", is_true=True, is_false=False, number=2469
+        john="wick",
+        number=2469,
+        extra_props={
+            "is-true": True,
+            "is-false": False,
+        },
     ).build()
     result_empty = TestEmpty(
-        john="wick", is_true=True, is_false=False, number=2469
+        john="wick",
+        number=2469,
+        extra_props={
+            "is-true": True,
+            "is-false": False,
+        },
     ).build()
     assert (
         result_content
-        == '<test-content john="wick" is-true number="2469"></test-content>'
+        == '<test-content is-true john="wick" number="2469"></test-content>'
     )
-    assert result_empty == '<test-empty john="wick" is-true number="2469"/>'
+    assert result_empty == '<test-empty is-true john="wick" number="2469"/>'
 
 
 def test_case_10():

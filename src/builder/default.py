@@ -1,11 +1,8 @@
 from typing import Literal, Optional, Sequence
-from typing_extensions import Unpack, TypedDict
-from builder.base import (
-    ContentTag,
-    EmptyTag,
-    Prop,
-    Tag,
-)
+
+from typing_extensions import TypedDict, Unpack
+
+from builder.base import ContentTag, EmptyTag, Prop, Tag
 
 
 class GlobalProps(TypedDict, total=False):
@@ -119,13 +116,13 @@ class DefaultProps(GlobalProps, EventProps, total=False, closed=True):
 class DefaultContentTag(ContentTag):
     def __init__(
         self,
-        children: Optional[Sequence[Tag | str]] = None,
         classes: Optional[Sequence[str]] = None,
+        children: Optional[Sequence[Tag]] = None,
         style: Optional[dict[str, str]] = None,
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Unpack[DefaultProps],
     ):
-        super().__init__(children, classes, style, extra_props, **props)
+        super().__init__(classes, children, style, extra_props, **props)
 
 
 class DefaultEmptyTag(EmptyTag):
