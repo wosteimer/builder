@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
+from collections.abc import Mapping
 from html import escape
+from types import MappingProxyType
 from typing import Optional, Sequence, override
 
 type Prop = float | int | bool | str
@@ -31,11 +33,32 @@ class ContentTag(Tag):
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Prop,
     ):
-        self.__children = children if children != None else list[Tag]()
-        self.__classes = classes if classes != None else list[str]()
-        self.__style = style if style != None else {}
-        self.__props = props
-        self.__extra_props = extra_props if extra_props != None else {}
+        self.__children = tuple(children) if children else tuple[Tag]()
+        self.__classes = tuple(classes) if classes != None else tuple[str]()
+        self.__style = (
+            MappingProxyType[str, str](style)
+            if style != None
+            else MappingProxyType(dict[str, str]())
+        )
+        self.__props = MappingProxyType[str, Prop](
+            {**dict(extra_props if extra_props else {}), **props}
+        )
+
+    @property
+    def classes(self) -> Sequence[str]:
+        return self.__classes
+
+    @property
+    def style(self) -> Mapping[str, str]:
+        return self.__style
+
+    @property
+    def props(self) -> Mapping[str, Prop]:
+        return self.__props
+
+    @property
+    def children(self) -> Sequence[Tag]:
+        return self.__children
 
     @override
     def build(self) -> str:
@@ -43,7 +66,7 @@ class ContentTag(Tag):
         props = ""
         props += build_classes(self.__classes)
         props += build_style(self.__style)
-        props += build_props({**self.__extra_props, **self.__props})
+        props += build_props(self.__props)
         children = "".join([child.build() for child in self.__children])
         return f"<{name}{props}>{children}</{name}>"
 
@@ -56,10 +79,27 @@ class EmptyTag(Tag):
         extra_props: Optional[dict[str, Prop]] = None,
         **props: Prop,
     ):
-        self.__classes = classes if classes != None else list[str]()
-        self.__style = style if style != None else {}
-        self.__props = props
-        self.__extra_props = extra_props if extra_props != None else {}
+        self.__classes = tuple(classes) if classes != None else tuple[str]()
+        self.__style = (
+            MappingProxyType[str, str](style)
+            if style != None
+            else MappingProxyType(dict[str, str]())
+        )
+        self.__props = MappingProxyType[str, Prop](
+            {**dict(extra_props if extra_props else {}), **props}
+        )
+
+    @property
+    def classes(self) -> Sequence[str]:
+        return self.__classes
+
+    @property
+    def style(self) -> Mapping[str, str]:
+        return self.__style
+
+    @property
+    def props(self) -> Mapping[str, Prop]:
+        return self.__props
 
     @override
     def build(self) -> str:
@@ -67,7 +107,7 @@ class EmptyTag(Tag):
         props = ""
         props += build_classes(self.__classes)
         props += build_style(self.__style)
-        props += build_props({**self.__extra_props, **self.__props})
+        props += build_props(self.__props)
         return f"<{name}{props}/>"
 
 
@@ -85,7 +125,7 @@ def build_name(name: str) -> str:
     return result
 
 
-def build_props(props: dict[str, Prop]) -> str:
+def build_props(props: Mapping[str, Prop]) -> str:
     if len(props) == 0:
         return ""
     output = ""
@@ -103,7 +143,7 @@ def build_classes(classes: Sequence[str]) -> str:
     return " class=" + f'"{" ".join(classes)}"'
 
 
-def build_style(style: dict[str, str]) -> str:
+def build_style(style: Mapping[str, str]) -> str:
     if style == {}:
         return ""
     style_content = "".join([f"{key}:{value};" for key, value in style.items()])

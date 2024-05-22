@@ -8,7 +8,7 @@ import sass
 from builder.base import Tag
 
 type Classes = Optional[list[str]]
-type Contructor[**P] = Callable[Concatenate[Classes, P], Tag]
+type Contructor[**P, R] = Callable[Concatenate[Classes, P], R]
 
 
 class Styler:
@@ -31,17 +31,13 @@ class Styler:
         return sass.compile(string=result)
 
     @staticmethod
-    def stylize[**P](tag: Contructor[P], style: str):
+    def stylize[**P, R](tag: Contructor[P, R], style: str):
         class_name = f"bu-{str(uuid4()).split("-")[0]}"
         Styler.__data[class_name] = style
 
         @wraps(tag)
-        def wrapper(classes: Classes = None, *args: P.args, **kwargs: P.kwargs):
-            if classes != None:
-                classes = [class_name, *classes]
-            else:
-                classes = [class_name]
-
+        def wrapper(classes: Classes = None, *args: P.args, **kwargs: P.kwargs) -> R:
+            classes = [class_name, *classes] if classes != None else [class_name]
             return tag(classes, *args, **kwargs)
 
         return wrapper
