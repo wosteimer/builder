@@ -1,3 +1,4 @@
+import hashlib
 from collections.abc import Callable
 from functools import wraps
 from typing import Concatenate, Optional
@@ -31,7 +32,7 @@ class Styler:
 
     @staticmethod
     def stylize[**P, R](tag: Contructor[P, R], style: str):
-        class_name = f"bu-{str(uuid4()).split("-")[0]}"
+        class_name = f"bu-{hashlib.sha1(style.encode("UTF-8")).hexdigest()[:8]}"
         Styler.__data[class_name] = style
 
         @wraps(tag)
