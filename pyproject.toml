@@ -10,6 +10,7 @@ packages = [{ include = "builder", from = "src" }]
 python = "^3.12"
 typing-extensions = "^4.11.0"
 libsass = "^0.23.0"
+minify-html = "^0.15.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.0"

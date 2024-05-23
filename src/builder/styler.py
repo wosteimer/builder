@@ -4,8 +4,7 @@ from typing import Concatenate, Optional
 from uuid import uuid4
 
 import sass
-
-from builder.base import Tag
+from minify_html import minify
 
 type Classes = Optional[list[str]]
 type Contructor[**P, R] = Callable[Concatenate[Classes, P], R]
@@ -28,7 +27,7 @@ class Styler:
                 for class_name, content in Styler.__data.items()
             ]
         )
-        return sass.compile(string=result)
+        return minify(sass.compile(string=result), minify_css=True)
 
     @staticmethod
     def stylize[**P, R](tag: Contructor[P, R], style: str):
